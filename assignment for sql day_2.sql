@@ -37,7 +37,7 @@
  WHERE sal BETWEEN 1000 AND 2000;
  
  -- 11. The record of employee details they are not manager (job, salary ).
- SELECT *
+ SELECT job,sal
  FROM emp_table
  WHERE	job <>'MANAGER';
  
@@ -48,17 +48,17 @@
  WHERE hiredate BETWEEN '1981-03-01' AND '1983-06-01';
  
  -- 13. The name of employee who are hired in 1981.
- SELECT *
+ SELECT emp_name
  FROM emp_table 
- WHERE hiredate = 1981; 
+ WHERE year (hiredate) = 1981; 
  
  -- 14. The name of employee who are working in dept 40.
- SELECT *
+ SELECT emp_name
  FROM emp_table 
  WHERE deptno = 40; 
  
  -- 15. The name and dept no who are  clerk.
- SELECT *
+ SELECT emp_name,deptno
  FROM emp_table
  WHERE	job ='CLERK';
  
@@ -88,3 +88,22 @@
   SELECT *
  FROM emp_table
  WHERE	sal <= 1500;
+ -- using like 
+ SELECT*
+ FROM emp_table WHERE hiredate LIKE '198%';
+ 
+ -- using IN
+ SELECT* 
+ FROM emp_table 
+ WHERE deptno in(20,30); 
+-- using and or not select * from empdpt.emp where deptno = 20 and ename = 'smith';
+SELECT*
+ FROM emp_table WHERE
+ deptno = 20 and job ='MANAGER';
+ 
+ SELECT* FROM
+ emp_table WHERE emp_name = 'SMITH' or emp_name='JOHN';
+ select*from emp_table;
+ 
+ UPDATE emp_table SET emp_name ='Deepak' where emp_id =7369;
+ DELETE FROM emp_table where emp_id = 499;
