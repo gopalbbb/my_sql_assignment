@@ -4,13 +4,16 @@ SELECT * FROM emp.product;
 SELECT *
 FROM emp.product WHERE category='momo';
 
+SELECT *
+FROM emp.product WHERE Name like '%momo%';
+
 -- 3 List all products whose category is international liquors or domestic liquors using in operator.
 SELECT*
 FROM emp.product WHERE category IN ('International Liquors','Domestic Liquors');
 
 -- 4 update all not defined category to null.
 UPDATE 
-emp.product SET category = 'null' WHERE category='not defined';
+emp.product SET category = null WHERE category='not defined';
 
 
 -- 5 Delete all products whose price is less than 10
@@ -24,8 +27,9 @@ emp.product WHERE list_price <10;
 SELECT*
 FROM emp.product WHERE list_price >500 AND category ='Domestic Liquors';
 
--- 7 List ID, name and price of the product whose price is between 200 and 500 of whose category is wine
+-- 7 List ID, name and price of the product whose price is between 200 and 500 or whose category is wine
 
-SELECT id,name,list_price FROM emp.product
-WHERE list_price BETWEEN 200 and 500 
+SELECT id,name,list_price,category FROM emp.product
+WHERE list_price BETWEEN 200 and 500
 or category ='Wine';
+select* from product;
